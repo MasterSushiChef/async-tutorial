@@ -34,7 +34,7 @@ router.get("/callback", (ctx) => {
 });
 
 router.get("/", (ctx) => {
-  ctx.body = "Hello I am gay";
+  ctx.body = "Hello I am harry ma! ";
 });
 
 app.use(router.routes());
