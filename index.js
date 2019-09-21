@@ -2,7 +2,6 @@ const Koa = require("koa");
 const Router = require("koa-router");
 const logger = require("koa-logger");
 const request = require("request");
-const ping = require("net-ping");
 
 const app = new Koa();
 const router = new Router();
@@ -18,18 +17,6 @@ router.get("/promise", function (ctx) {
 
   promise.then((res) => {
     console.log(res);
-  });
-});
-
-router.get("/callback", (ctx) => {
-  const session = ping.createSession();
-
-  session.pingHost("127.0.0.1", function(err, _target, sent, rcvd) {
-    if (err) { 
-      console.log(err);
-      ctx.body = "Error on pinging host!";
-    }
-    else ctx.body = rcvd - sent;
   });
 });
 
